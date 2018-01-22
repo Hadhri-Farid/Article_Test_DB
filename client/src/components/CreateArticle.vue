@@ -79,9 +79,9 @@ export default {
   }
 }
 </script>
-
+<!-- je n'arrive pas à mettre uniquement le text en rouge sur fond blanc -->
 <style scoped>
 .error {
-  color: red;
+  color: white;
 }
 </style>
