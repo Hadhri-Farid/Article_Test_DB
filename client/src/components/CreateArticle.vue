@@ -49,7 +49,6 @@
 
 <script>
 import VerifInput from '@/services/VerifInput'
-
 import store from './ArticlesStore'
 
 export default {

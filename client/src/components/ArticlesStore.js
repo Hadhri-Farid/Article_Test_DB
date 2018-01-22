@@ -1,13 +1,39 @@
 import Vuex from 'vuex'
+import 'vue-use-vuex'
 
-export default new Vuex.Store({
+const state = {
+  articles: [{
+    title: 'mon titre'
+  }]
+}
 
-  state: {},
+const mutations = {
 
-  mutations: {},
+  ADD_ARTICLE: (state, title) => {
+    state.articles.push({
+      title: title
+    })
+  }
+}
 
-  getter: {},
+const getters = {
+  articles: (state) => state.articles
+}
 
-  actions: {}
+let store = new Vuex.Store({
+
+  state: state,
+
+  mutations: mutations,
+
+  getters: getters,
+
+  actions: {},
+
+  strict: true
 
 })
+
+global.store = store
+
+export default store
