@@ -9,9 +9,7 @@
           </v-flex>
           <v-flex xs4>
             <v-text-field
-              name="input-1"
               label="Titre de votre article"
-              id="title"
               v-model="title"
             ></v-text-field>
           </v-flex>
@@ -22,9 +20,7 @@
           </v-flex>
           <v-flex xs4>
             <v-text-field
-              name="input-1"
               label="Contenu de votre article"
-              id="text"
               v-model="text"
             ></v-text-field>
           </v-flex>
@@ -35,9 +31,7 @@
           </v-flex>
           <v-flex xs4>
             <v-text-field
-              name="input-1"
               label="Url de votre Image"
-              id="image"
               v-model="img"
             ></v-text-field>
           </v-flex>
@@ -55,7 +49,13 @@
 
 <script>
 import VerifInput from '@/services/VerifInput'
+
+import store from './ArticlesStore'
+
 export default {
+
+  store: store,
+
   data () {
     return {
       title: '',
@@ -81,6 +81,33 @@ export default {
 </script>
 <!-- je n'arrive pas à mettre uniquement le text en rouge sur fond blanc -->
 <style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
 .error {
   color: white;
 }
