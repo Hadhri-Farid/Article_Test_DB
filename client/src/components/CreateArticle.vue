@@ -42,8 +42,13 @@
             ></v-text-field>
           </v-flex>
         </v-layout>
-      </v-container>
+        <v-layout row>
+          <v-flex xs12>
+            <div class="error" v-html="error" />
+          </v-flex>
+      </v-layout>
       <v-btn @click="createArticle" color="primary">Creer</v-btn>
+      </v-container>
     </v-card-text>
   </v-card>
 </template>
@@ -55,18 +60,28 @@ export default {
     return {
       title: '',
       text: '',
-      img: ''
+      img: '',
+      error: null
     }
   },
   methods: {
     async createArticle () {
-      const response = await VerifInput.register({
-        title: this.title,
-        text: this.text,
-        img: this.img
-      })
-      console.log(response.data)
+      try {
+        await VerifInput.register({
+          title: this.title,
+          text: this.text,
+          img: this.img
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   }
 }
 </script>
+
+<style scoped>
+.error {
+  color: red;
+}
+</style>
